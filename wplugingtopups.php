@@ -11,7 +11,7 @@ License: A "Slug" license name e.g. GPL2
 */
 
 function Activar(){
-
+  
 }
  function Desactivar(){
 
@@ -20,3 +20,5 @@ function Activar(){
  function Borrar(){
 
  }
+
+ register_activation_hook(__FILE__, `Activar');

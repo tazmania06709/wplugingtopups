@@ -17,8 +17,10 @@ function Activar(){
 
  }
 
- function Borrar(){
+//  function Borrar(){
 
- }
+//  }
 
- register_activation_hook(__FILE__, `Activar');
+ register_activation_hook(__FILE__, "Activar");
+ register_deactivation_hook(__FILE__, "Desactivar");
+//  register_unistall_hook(__FILE__,"Borrar");

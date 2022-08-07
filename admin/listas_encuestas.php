@@ -1,3 +1,9 @@
+<?php 
+ 
+    global $wpdb; 
+ 
+?>
+
 <diV class="wrap"
     <?php
         echo "<h1>".get_admin_page_title()."</h1>";
@@ -12,14 +18,17 @@
             <th>Acciones</th>
         </thead>
         <tbody id="the-list">
-            <tr>
-              <td>Primera encuesta</td>
-              <td>[CODE]</td>
-              <td>
-                <a class="page-title-action">Ver estadisticas</a>
-                <a class="page-title-action">Borrar</a>
-              </td>
-            </tr>  
+           <?php 
+              <tr>
+                <td>Primera encuesta</td>
+                <td>[CODE]</td>
+                <td>
+                  <a class="page-title-action">Ver estadisticas</a>
+                  <a class="page-title-action">Borrar</a>
+                </td>
+              </tr> 
+            ?> 
+        </tbody>    
      </table>
 
 

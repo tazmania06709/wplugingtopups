@@ -16,9 +16,11 @@ function Activar(){
   $sql = "CREAT TABLE IF NOT EXISTS {$wpdb->prefix}encuestas( 
          'EncuestaId' INT NOT NULL AUTO_INCREMENT,
          'Nombre' VARCHAR(45) NULL,
-         ''
+         'ShortCode' VARCHAR(45) NULL,
+         'PRIMARY KEY' ('EncuestaId')
      ) "; 
 }
+
  function Desactivar(){
    flush_rewrite_rules();
  }

@@ -24,3 +24,21 @@ function Activar(){
  register_activation_hook(__FILE__, "Activar");
  register_deactivation_hook(__FILE__, "Desactivar");
 //  register_unistall_hook(__FILE__,"Borrar");
+
+add_action('admin_menu','CrearMenu');
+
+function CrearMenu(){
+    add_menu_page('Super Encuestas',// Titulo de la pagina
+                   'Super Encuestas Menu',// Titulo de Menu
+                   'manage_options', // Capability
+                   'tu_menu', //slug
+                   'MostrarContenido', // Mostrar contenido de la pagina
+                   plugin_dir_url(__FILE__).'admin/img/folderup.png', // Icono del pulgin
+                   '1'
+                );
+}
+
+
+function MostrarContenido(){
+    echo "<h1>Contenido de la pagina</h1>";
+}

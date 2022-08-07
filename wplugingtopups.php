@@ -36,8 +36,8 @@ function CrearMenu(){
                    plugin_dir_url(__FILE__).'admin/img/folderup.png', // Icono del pulgin
                    '1'
                 );
-
-    add_submenu_page(
+// Agregar un submenu//
+/*     add_submenu_page(
                     'tu_menu', // parent slug
                     'Ajustes', // titulo pagina
                     'Ajustes', // Titulo menu
@@ -48,12 +48,13 @@ function CrearMenu(){
 
                     );             
 }
-
-
+ */
+// Muestra el contenido de la pagina principal del plugin
 function MostrarContenido(){
     echo "<h1>Contenido de la pagina</h1>";
 }
 
-function Submenu(){
+// Funcion submenu
+/* function Submenu(){
     echo "<h1>SubMenu pagina</h1>";
-}
+} */

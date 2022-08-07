@@ -1,8 +1,7 @@
 <?php 
  
     global $wpdb; 
- 
-?>
+ ?>
 
 <diV class="wrap"
     <?php
@@ -18,7 +17,7 @@
             <th>Acciones</th>
         </thead>
         <tbody id="the-list">
-           <?php 
+           <?php ?>
               <tr>
                 <td>Primera encuesta</td>
                 <td>[CODE]</td>
@@ -27,9 +26,7 @@
                   <a class="page-title-action">Borrar</a>
                 </td>
               </tr> 
-            ?> 
+           <?php ?> 
         </tbody>    
      </table>
-
-
 </div>   

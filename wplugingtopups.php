@@ -31,9 +31,11 @@ function CrearMenu(){
     add_menu_page('Super Encuestas',// Titulo de la pagina
                    'Super Encuestas Menu',// Titulo de Menu
                    'manage_options', // Capability
-                   'tu_menu', //slug
-                   'MostrarContenido', // Mostrar contenido de la pagina
-                   plugin_dir_url(__FILE__).'admin/img/folderup.png', // Icono del pulgin
+                   //'tu_menu', //slug
+                    plugin_dir_path(__FILE__).'admin/listas_encuestas.php', //slug
+                  // 'MostrarContenido', // Mostrar contenido de la pagina
+                    null, // Mostrar contenido de la pagina
+                    plugin_dir_url(__FILE__).'admin/img/folderup.png', // Icono del pulgin
                    '1'
                 );
 // Agregar un submenu//
@@ -46,15 +48,15 @@ function CrearMenu(){
                     'Submenu', // funcio submenu
 
 
-                    );             
+                    );     */        
 }
- */
+ 
 // Muestra el contenido de la pagina principal del plugin
 function MostrarContenido(){
     echo "<h1>Contenido de la pagina</h1>";
 }
 
 // Funcion submenu
-/* function Submenu(){
+/*  function Submenu(){
     echo "<h1>SubMenu pagina</h1>";
-} */
+}  */

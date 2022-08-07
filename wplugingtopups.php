@@ -11,10 +11,16 @@ License: A "Slug" license name e.g. GPL2
 */
 
 function Activar(){
-  
+  global $wpdb;
+
+  $sql = "CREAT TABLE IF NOT EXISTS {$wpdb->prefix}encuestas( 
+         'EncuestaId' INT NOT NULL AUTO_INCREMENT,
+         'Nombre' VARCHAR(45) NULL,
+         ''
+     ) "; 
 }
  function Desactivar(){
-
+   flush_rewrite_rules();
  }
 
 //  function Borrar(){
@@ -28,7 +34,8 @@ function Activar(){
 add_action('admin_menu','CrearMenu');
 
 function CrearMenu(){
-    add_menu_page('Super Encuestas',// Titulo de la pagina
+    add_menu_page(
+                   'Super Encuestas Titulos',// Titulo de la pagina
                    'Super Encuestas Menu',// Titulo de Menu
                    'manage_options', // Capability
                    //'tu_menu', //slug

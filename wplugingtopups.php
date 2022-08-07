@@ -13,12 +13,30 @@ License: A "Slug" license name e.g. GPL2
 function Activar(){
   global $wpdb;
 
-  $sql = "CREAT TABLE IF NOT EXISTS {$wpdb->prefix}encuestas( 
-         'EncuestaId' INT NOT NULL AUTO_INCREMENT,
-         'Nombre' VARCHAR(45) NULL,
-         'ShortCode' VARCHAR(45) NULL,
-         'PRIMARY KEY' ('EncuestaId')
-     ) "; 
+  $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}encuestas(
+          `EncuestaId` int NOT NULL,
+          `Nombre` varchar(45) NULL,
+          `ShortCode` varchar(45) NULL,
+           PRIMARY KEY (`EncuestaId`));";
+
+  $wpdb->query($sql);
+
+  $sql2 = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}encuestas_detalle(
+          `DetalleId` int NOT NULL AUTO_INCREMENT,
+          `EncuestaId` int null,
+          `Pregunta` varchar(150) null,
+          `Tipo` varchar(45) null,
+          primary key (`DetalleId`));";
+
+  $wpdb->query($sql2);
+
+  $sql3 = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}encuestas_respuesta(
+    `RespuestaId` int NOT NULL AUTO_INCREMENT,
+    `DetalleId` int null,
+    `Respuesta` varchar(45) null,
+    primary key (`RespuestaId`));";
+
+  $wpdb->query($sql3);
 }
 
  function Desactivar(){

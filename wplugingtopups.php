@@ -14,7 +14,7 @@ function Activar(){
   global $wpdb;
 
   $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}encuestas(
-          `EncuestaId` int NOT NULL,
+          `EncuestaId` int NOT NULL AUTO_INCREMENT,
           `Nombre` varchar(45) NULL,
           `ShortCode` varchar(45) NULL,
            PRIMARY KEY (`EncuestaId`));";

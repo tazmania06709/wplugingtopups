@@ -1,6 +1,12 @@
 <?php 
  
     global $wpdb; 
+    $query = "SELECT * FROM {$wpdb->prefix}encuestas";
+    $lista_encuestas = $wpdb->get_results($query,ARRAY_A);
+    if(empty($lista_encuestas))
+     {
+      $lista_encuestas = array();
+     }
  ?>
 
 <diV class="wrap"
@@ -17,16 +23,22 @@
             <th>Acciones</th>
         </thead>
         <tbody id="the-list">
-           <?php ?>
-              <tr>
-                <td>Primera encuesta</td>
-                <td>[CODE]</td>
-                <td>
-                  <a class="page-title-action">Ver estadisticas</a>
-                  <a class="page-title-action">Borrar</a>
-                </td>
-              </tr> 
-           <?php ?> 
+           <?php foreach ($lista_encuestas as $key => $value) {
+            # code...
+            $nombre = $value['Nombre'];
+            $shortcode = $value['ShortCode'];
+            echo "
+                  <tr>
+                    <td>$nombre</td>
+                    <td>$shortcode</td>
+                    <td>
+                      <a class='page-title-action'>Ver estadisticas</a>
+                      <a class='page-title-action'>Borrar</a>
+                    </td>
+                  </tr> 
+                  ";
+                }
+            ?> 
         </tbody>    
      </table>
 </div>   

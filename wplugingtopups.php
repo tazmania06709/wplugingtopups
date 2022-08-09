@@ -98,7 +98,7 @@ function EncolarBootstarpJS($hook){
    if($hook != "wplugingtopups/admin/listas_encuestas.php"){
     return ;
    }
-   wp_enqueue_script('bootstrapjs',plugins_url('admin/bootstrap/js/bootstrap.min.js', __FILE__),array('jquery'));
+   wp_enqueue_scripts('bootstrapjs',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__), array('jquery'));
 
 }
 add_action(null,'admin_enqueue_scripts',5,'EncolarBootstrapJS'); 

@@ -92,7 +92,7 @@ function MostrarContenido(){
 
 function EncolarBootstarpJS(){
 
-    wp_enqueue_script('bootstrapJS',plugins_url('admin/bootstrap/js/bootstrap.min.js'),__FILE__),array('jquery'));
+    wp_enqueue_script('bootstrapJS',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__),array('jquery'));
 
 }
 add_action('admin_enqueue_scripts','EncolarBootstrapJS');

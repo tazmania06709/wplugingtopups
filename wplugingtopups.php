@@ -10,6 +10,9 @@ Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL2
 */
 
+//requires
+
+
 function Activar(){
   global $wpdb;
 
@@ -90,9 +93,24 @@ function MostrarContenido(){
 
 //encolar bootstrap
 
-function EncolarBootstarpJS(){
-
-    wp_enqueue_script('bootstrapJS',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__),array('jquery'));
+function EncolarBootstarpJS($hook){
+   //echo "<script>console.log('$hook')</script>";
+   if($hook != "wplugingtopups/admin/listas_encuestas.php"){
+    return ;
+   }
+   wp_enqueue_script('bootstrapjs',plugins_url('admin/bootstrap/js/bootstrap.min.js', __FILE__),array('jquery'));
 
 }
-add_action('admin_enqueue_scripts','EncolarBootstrapJS');
+add_action(null,'admin_enqueue_scripts',5,'EncolarBootstrapJS'); 
+
+//encolar bootstrap CSS
+
+function EncolarBootstarpCSS($hook){
+  //echo "<script>console.log('$hook')</script>";
+  if($hook != "wplugingtopups/admin/listas_encuestas.php"){
+   return ;
+  }
+  wp_enqueue_style('bootstrapcss',plugins_url('admin/bootstrap/css/bootstrap.min.css', __FILE__));
+
+}
+add_action(null,'admin_enqueue_scripts',5,'EncolarBootstarpCSS'); 

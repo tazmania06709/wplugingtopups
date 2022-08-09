@@ -87,3 +87,12 @@ function MostrarContenido(){
 /*  function Submenu(){
     echo "<h1>SubMenu pagina</h1>";
 }  */
+
+//encolar bootstrap
+
+function EncolarBootstarpJS(){
+
+    wp_enqueue_script('bootstrapJS',plugins_url('admin/bootstrap/js/bootstrap.min.js'),__FILE__),array('jquery'));
+
+}
+add_action('admin_enqueue_scripts','EncolarBootstrapJS');

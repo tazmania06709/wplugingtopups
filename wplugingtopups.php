@@ -91,26 +91,26 @@ function MostrarContenido(){
     echo "<h1>SubMenu pagina</h1>";
 }  */
 
-//encolar bootstrap
+//encolar bootstrap JS
 
-function EncolarBootstarpJS($hook){
+function EncolarJS($hook){
    //echo "<script>console.log('$hook')</script>";
    if($hook != "wplugingtopups/admin/listas_encuestas.php"){
     return ;
    }
-   wp_enqueue_scripts('bootstrapjs',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__), array('jquery'));
+   wp_enqueue_script('bootstrapJs',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__), array('jquery'));
 
 }
-add_action(null,'admin_enqueue_scripts',5,'EncolarBootstrapJS'); 
+add_action('admin_enqueue_scripts','EncolarJS'); 
 
 //encolar bootstrap CSS
 
-function EncolarBootstarpCSS($hook){
+function EncolarCSS($hook){
   //echo "<script>console.log('$hook')</script>";
   if($hook != "wplugingtopups/admin/listas_encuestas.php"){
    return ;
   }
-  wp_enqueue_style('bootstrapcss',plugins_url('admin/bootstrap/css/bootstrap.min.css', __FILE__));
+  wp_enqueue_style('bootstrapcss',plugins_url('admin/bootstrap/css/bootstrap.min.css',__FILE__));
 
 }
-add_action(null,'admin_enqueue_scripts',5,'EncolarBootstarpCSS'); 
+add_action('admin_enqueue_scripts','EncolarCSS'); 

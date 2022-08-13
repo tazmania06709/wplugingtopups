@@ -114,3 +114,16 @@ function EncolarCSS($hook){
 
 }
 add_action('admin_enqueue_scripts','EncolarCSS'); 
+
+
+//encolar Funciones JS
+
+function FuncionesJS($hook){
+  //echo "<script>console.log('$hook')</script>";
+  if($hook != "wplugingtopups/admin/listas_encuestas.php"){
+   return ;
+  }
+  wp_enqueue_script('functionJs',plugins_url('admin/js/lista_encuestas.js',__FILE__), array('jquery'));
+
+}
+add_action('admin_enqueue_scripts','FuncionesJS'); 

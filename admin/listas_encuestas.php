@@ -1,6 +1,12 @@
 <?php 
  
     global $wpdb; 
+
+    if(isset($_POST['btnguardar'])){
+      print_r($_POST);
+    }
+   
+
     $query = "SELECT * FROM {$wpdb->prefix}encuestas";
     $lista_encuestas = $wpdb->get_results($query,ARRAY_A);
     if(empty($lista_encuestas))
@@ -63,8 +69,11 @@
                       <input type="text" id="txtnombre" name="txtnombre" style="width:100";
                   </div>
               </div>
+              <hr>
                 <h4> Preguntas</h4>
               <br>
+              <hr>
+             
               <table id="camposdinamicos">
                 <tr>
                   <td>
@@ -72,6 +81,12 @@
                   </td>
                   <td>
                     <input type="text" name="name[]" id="name" class="form-control name_list">
+                  </td>
+                  <td>
+                    <select name ="type[]" id="type" class="form-control type_list">
+                        <option value ="1" select> Si --- No</option>
+                        <option value = "2"> Rango 0 -- 5</option>
+                    </select>
                   </td>
                   <td>
                     <button name="add" id="add" class="btn btn-success" style="margin-left:5px">Agregar</button>
@@ -82,7 +97,7 @@
         </div>    
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" name="btnguardar" id="btnguardar">Guardar</button>
         </div>
       </form>
     </div>

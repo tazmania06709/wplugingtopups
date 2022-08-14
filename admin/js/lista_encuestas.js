@@ -1,3 +1,9 @@
 jQuery(document).ready(function($){
-    console.log('Estoy aqui');
+
+    $("#btnnuevo").click(function(){
+      
+        $("#modalnew").modal("show");
+        console.log('Click nuevo');
+    });
+    
 });

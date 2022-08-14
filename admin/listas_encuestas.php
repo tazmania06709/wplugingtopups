@@ -13,7 +13,7 @@
     <?php
         echo "<h1>".get_admin_page_title()."</h1>";
     ?>
-     <a class="page-title-action">Añadir nuevo:</a>
+     <a id="btnnuevo" class="page-title-action">Añadir nuevo:</a>
      <br><br><br>
    
      <table class="wp-list-table widefat fixed striped pages">
@@ -41,4 +41,27 @@
             ?> 
         </tbody>    
      </table>
-</div>   
+</div>  
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalnew" tabindex="-1" aria-labelledby="modalnewLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalnewLabel">Nueva encuesta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

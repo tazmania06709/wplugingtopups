@@ -57,29 +57,32 @@
       </div>
       <form method="POST">
         <div class="modal-body">
-          <div class="form-group">
-              <label for="txtnombre" class="col-sm-4 col-form-label">Nombre de la encuesta</label>
-                <div class="col-sm-8">
-                  <input type="text" id="txtnombre" name="txtnombre" style="width:100";
-                </div>
-          </div>
-          <h4> Preguntas de la encuesta</h4>
-          <br>
-          <table id="campos dinamicos">
-            <tr>
-               <td>
-                 <label for="txtnombre" class="col-form-label"> Pregunta</label>
-               </td>
-               <td></td>
-               <td></td>
-            </tr>
-
-          </table>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Guardar</button>
-          </div>
-          
+              <div class="form-group">
+                  <label for="txtnombre" class="col-sm-4 col-form-label">Nombre de la encuesta</label>
+                  <div class="col-sm-8">
+                      <input type="text" id="txtnombre" name="txtnombre" style="width:100";
+                  </div>
+              </div>
+                <h4> Preguntas</h4>
+              <br>
+              <table id="camposdinamicos">
+                <tr>
+                  <td>
+                    <label for="txtnombre" class="col-form-label" style="margin-right:5px"> Pregunta</label>
+                  </td>
+                  <td>
+                    <input type="text" name="name[]" id="name" class="form-control name_list">
+                  </td>
+                  <td>
+                    <button name="add" id="add" class="btn btn-success" style="margin-left:5px">Agregar</button>
+                  </td>
+                </tr>
+     /*  ME QUEDE EN 8 MINUSTOS VIDEO MODAL*/
+              </table>
+        </div>    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
         </div>
       </form>
     </div>

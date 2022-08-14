@@ -68,7 +68,7 @@
               <table id="camposdinamicos">
                 <tr>
                   <td>
-                    <label for="txtnombre" class="col-form-label" style="margin-right:5px"> Pregunta</label>
+                    <label for="txtnombre" class="col-form-label" style="margin-right:5px"> Pregunta 1 </label>
                   </td>
                   <td>
                     <input type="text" name="name[]" id="name" class="form-control name_list">
@@ -77,7 +77,7 @@
                     <button name="add" id="add" class="btn btn-success" style="margin-left:5px">Agregar</button>
                   </td>
                 </tr>
-     /*  ME QUEDE EN 8 MINUSTOS VIDEO MODAL*/
+     
               </table>
         </div>    
         <div class="modal-footer">

@@ -15,39 +15,44 @@
      }
  ?>
 
-<diV class="wrap"
-    <?php
-        echo "<h1>".get_admin_page_title()."</h1>";
-    ?>
-     <a id="btnnuevo" class="page-title-action">Añadir nuevo:</a>
-     <br><br><br>
-   
-     <table class="wp-list-table widefat fixed striped pages">
-        <thead>
-            <th> Nombre de la encuesta</th>
-            <th>ShortCode</th>
-            <th>Acciones</th>
-        </thead>
-        <tbody id="the-list">
-           <?php foreach ($lista_encuestas as $key => $value) {
-            # code...
-            $nombre = $value['Nombre'];
-            $shortcode = $value['ShortCode'];
-            echo "
-                  <tr>
-                    <td>$nombre</td>
-                    <td>$shortcode</td>
-                    <td>
-                      <a class='page-title-action'>Ver estadisticas</a>
-                      <a class='page-title-action'>Borrar</a>
-                    </td>
-                  </tr> 
-                  ";
-                }
-            ?> 
-        </tbody>    
-     </table>
-</div>  
+<div class="wrap">
+        <?php
+             echo "<h1 class='wp-heading-inline'>" . get_admin_page_title() . "</h1>";
+        ?>
+         <a id="btnnuevo" class="page-title-action">Añadir nueva</a>
+
+         <br><br><br>
+
+         <table class="wp-list-table widefat fixed striped pages">
+                <thead>
+                    <th >Nombre de la encuestas</th>
+                    <th >ShortCode</th>
+                    <th >Acciones</th>
+                </thead>
+                <tbody id="the-list">
+                    <?php 
+                        foreach ($lista_encuestas as $key => $value) {
+                          $id = $value['EncuestaId'];
+                         $nombre = $value['Nombre'];
+                         $shortcode = $value['ShortCode'];
+                           echo "
+                                <tr>
+                                    <td>$nombre</td>
+                                    <td>$shortcode </td>
+                                    <td>
+                                      <a data-ver='$id' class='page-title-action'>Ver estadisticas</a>
+                                      <a data-id='$id' class='page-title-action'>Borrar</a>
+                                    </td>
+                                </tr>
+                            ";
+                        }
+
+                    ?>
+                </tbody>
+        </table>
+
+
+ </div>  
 
 
 
@@ -83,13 +88,13 @@
                     <input type="text" name="name[]" id="name" class="form-control name_list">
                   </td>
                   <td>
-                    <select name ="type[]" id="type" class="form-control type_list">
-                        <option value ="1" select> Si --- No</option>
-                        <option value = "2"> Rango 0 -- 5</option>
+                    <select name ="type[]" id="type" class="form-control type_list" style="margin-left:5px">
+                        <option value ="1" select> Si - No</option>
+                        <option value = "2"> Rango 0 - 5</option>
                     </select>
                   </td>
                   <td>
-                    <button name="add" id="add" class="btn btn-success" style="margin-left:5px">Agregar</button>
+                    <button name="add" id="add" class="btn btn-success" style="margin-left:15px">Agregar</button>
                   </td>
                 </tr>
      

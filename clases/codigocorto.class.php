@@ -83,7 +83,7 @@
         //obtener todas las preguntas
         $preguntas = "";
         $listapreguntas = $this->ObtenerEncuestaDetalle($encuestaid);
-        var_dump($listapreguntas);
+      //  var_dump($listapreguntas);
         foreach($listapreguntas as $key => $value) {
             $detalleid = $value['DetalleId'];
             $pregunta = $value['Pregunta'];

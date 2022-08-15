@@ -12,6 +12,8 @@ License: A "Slug" license name e.g. GPL2
 
 //requires
 
+require_once dirname(__FILE__).'/clases/codigocorto.class.php';
+
 
 function Activar(){
   global $wpdb;
@@ -150,3 +152,36 @@ function EliminarEncuesta(){
 }
 
 add_action('wp_ajax_peticioneliminar', 'EliminarEncuesta');
+
+
+
+// shortCode
+
+function imprimirshortcode($atts){
+    $_short = new codigocorto; // Instancia de la clase codigocorto
+    //obtener el id por parametro
+    $id= $atts['id'];
+    //Programar las acciones del boton
+    if(isset($_POST['btnguardar'])){
+        $listadePreguntas = $_short->ObtenerEncuestaDetalle($id);
+        $codigo = uniqid();
+        foreach ($listadePreguntas as $key => $value) {
+           $idpregunta = $value['DetalleId'];
+           if(isset($_POST[$idpregunta])){
+               $valortxt = $_POST[$idpregunta];
+               $datos = [
+                   'DetalleId' => $idpregunta,
+                   'Codigo' => $codigo,
+                   'Respuesta' => $valortxt
+               ];
+               $_short->GuardarDetalle($datos);
+           }
+        }
+        return " Encuesta enviada exitosamente";
+    }
+    //Imprimir el formulario
+    $html = $_short->Armador($id);
+    return $html;
+}
+
+add_shortcode("ENC","imprimirshortcode"); 

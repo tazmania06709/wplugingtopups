@@ -2,8 +2,44 @@
  
     global $wpdb; 
 
+    $tabla = "{$wpdb->prefix}encuestas";
+    $tabla2 = "{$wpdb->prefix}encuetas_detalle";
+
+
     if(isset($_POST['btnguardar'])){
-      print_r($_POST);
+
+      $nombre = $_POST['txtnombre'];
+      $query = "SELECT EncuestaId FROM $tabla ORDER BY EncuestaId DESC limit 1";
+      $resultado = $wpdb->get_results($query,ARRAY_A);
+      $proximoId = $resultado[0]['EncuestaId'] + 1;
+      $shortcode = "[ENC_$proximoId]";
+
+      $datos = [
+        'EncuestaId' => null,
+        'Nombre' => $nombre,
+        'ShortCode' => $shortcode
+      ];
+     // print_r($datos);
+
+      $respuesta =  $wpdb->insert($tabla,$datos);
+
+          if($respuesta){
+             $listapreguntas = $_POST['name'];
+             $i = 0;
+             foreach ($listapreguntas as $key => $value) {
+                  $tipo = $_POST['type'][$i];
+                  $datos2 = [
+                      'DetalleId' => null,
+                      'EncuestaId' => $proximoId,
+                      'Pregunta' => $value,
+                      'Tipo' => $tipo
+                  ];
+
+                  $wpdb->insert($tabla2,$datos2);
+
+                  $i++;
+             }
+          }
     }
    
 

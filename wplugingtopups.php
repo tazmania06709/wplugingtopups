@@ -124,6 +124,10 @@ function FuncionesJS($hook){
    return ;
   }
   wp_enqueue_script('functionJs',plugins_url('admin/js/lista_encuestas.js',__FILE__), array('jquery'));
+  wp_localize_script('functionJs','SolicitudesAjax',[
+       'url' => admin_url('admin-ajax.php'), // Worpress ejecuta all las peticiones ajax desde admin-ajax.php
+       'seguridad' => wp_create_nonce('seg')
+  ]);
 
 }
 add_action('admin_enqueue_scripts','FuncionesJS'); 

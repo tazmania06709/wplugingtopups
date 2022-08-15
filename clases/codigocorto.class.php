@@ -24,6 +24,7 @@
         }
         return $datos[0];
     }
+//Comienzo formulario
 
     public function formOpen($titulo)
     {
@@ -38,7 +39,7 @@
 
         return $html;
     }
-
+// Cierre formulario
     public function formClose()
     {
         # code...
@@ -52,7 +53,8 @@
         return $html;
     }
    
-    f  function fromInput($detalleid,$pregunta,$tipo){
+    // Contenido del formulario
+    function fromInput($detalleid,$pregunta,$tipo){
         $html="";
         if($tipo == 1){
             $html="
@@ -74,14 +76,15 @@
         return $html;
     }
 
-
+// confeccion del formulario 
     function Armador($encuestaid){
         $enc = $this->ObtenerEncuesta($encuestaid);
          $nombre = $enc['Nombre'];
         //obtener todas las preguntas
         $preguntas = "";
-        $listaprengutas = $this->ObtenerEncuestaDetalle($encuestaid);
-        foreach ($listaprengutas as $key => $value) {
+        $listapreguntas = $this->ObtenerEncuestaDetalle($encuestaid);
+        var_dump($listapreguntas);
+        foreach($listapreguntas as $key => $value) {
             $detalleid = $value['DetalleId'];
             $pregunta = $value['Pregunta'];
             $tipo =$value['Tipo'];
@@ -100,7 +103,11 @@
 
     }
 
-
+    function GuardarDetalle($datos){
+       global $wpdb;
+       $tabla = "{$wpdb->prefix}encuestas_respuesta"; 
+       return  $wpdb->insert($tabla,$datos);
+    }
 
   }
 

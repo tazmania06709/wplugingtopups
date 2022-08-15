@@ -3,7 +3,7 @@
     global $wpdb; 
 
     $tabla = "{$wpdb->prefix}encuestas";
-    $tabla2 = "{$wpdb->prefix}encuetas_detalle";
+    $tabla2 = "{$wpdb->prefix}encuestas_detalle";
 
 
     if(isset($_POST['btnguardar'])){

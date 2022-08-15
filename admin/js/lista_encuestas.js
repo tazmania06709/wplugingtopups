@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
             }
         });
 
-       //        MINUTOS 5 
+       //        MINUTOS 5 vIDEO 10
 });
 
 }); 

@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 
-    console.log(SolicitudesAjax);
+    // console.log(SolicitudesAjax);
 
     $("#btnnuevo").click(function() {
 
@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
                 id: id,
             },
             success: function() {
-                alert("Datos borrados");
+                //alert("Datos borrados");
                 location.reload();
             }
         });

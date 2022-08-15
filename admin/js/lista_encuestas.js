@@ -23,13 +23,13 @@ jQuery(document).ready(function($) {
 
     });
 
-    // Minutos 16
+
     $(document).on('click', "a[data-id]", function() {
         var id = this.dataset.id;
         var url = SolicitudesAjax.url;
         $.ajax({
             type: "POST",
-            url: url,
+            url: SolicitudesAjax.url,
             data: {
                 action: "peticioneliminar",
                 nonce: SolicitudesAjax.seguridad,
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
             }
         });
 
-        //        MINUTOS 5 vIDEO 10
+
     });
 
 });

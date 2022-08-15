@@ -131,3 +131,22 @@ function FuncionesJS($hook){
 
 }
 add_action('admin_enqueue_scripts','FuncionesJS'); 
+
+// Ajax
+
+function EliminarEcuesta(){
+  $nonce = $_POST['nonce'];
+  if(!wp_verify_nonce($nonce, 'seg')){
+      die('No tiene permisos para ejecutar ese AJAx');
+  }
+  $id = $_POST['id'];
+  global $wpdb;
+  $tabla = "{$wpdb->prefix}encuestas";
+  $tabla2 = "{$wpdb->prefix}encuetas_detalle";
+  $wpdb->delete($tabla,array('Encuestaid' => $id));
+  $wpdb->delete($tabla2,array('Encuestaid' => $id));
+  return true;
+
+}
+
+add_action('wp_ajax_peticioneleiminar', 'EliminarEncuesta');

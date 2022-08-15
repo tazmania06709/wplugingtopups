@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
                 id: id,
             },
             success: function() {
-                //alert("Datos borrados");
+                alert("Datos borrados");
                 location.reload();
             }
         });

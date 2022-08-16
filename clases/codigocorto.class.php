@@ -1,59 +1,58 @@
-<?php
-  class codigocorto{
-  
-    public function ObtenerEncuesta($encuestaid){
+.<?php
 
+class codigocorto{
+
+
+
+    public function ObtenerEncuesta($encuestaid){
         global $wpdb;
-        $tabla = "{$wpdb->prefix}encuesta";
+        $tabla = "{$wpdb->prefix}encuestas";
         $query = "SELECT * FROM $tabla WHERE EncuestaId = '$encuestaid'";
-        $datos = $wpdb->get_results($query, ARRAY_A);
+        $datos = $wpdb->get_results($query,ARRAY_A);
         if(empty($datos)){
             $datos = array();
         }
         return $datos[0];
     }
+
 
     public function ObtenerEncuestaDetalle($encuestaid){
-
         global $wpdb;
-        $tabla = "{$wpdb->prefix}encuestas_detalle";
+        $tabla = "{$wpdb->prefix}encuenstas_detalle";
         $query = "SELECT * FROM $tabla WHERE EncuestaId = '$encuestaid'";
-        $datos = $wpdb->get_results($query, ARRAY_A);
+        $datos = $wpdb->get_results($query,ARRAY_A);
         if(empty($datos)){
             $datos = array();
         }
-        return $datos[0];
+        return $datos;
     }
-//Comienzo formulario
 
-    public function formOpen($titulo)
-    {
-        # code...
+
+    public function formOpen($titulo){
         $html = "
             <div class='wrap'>
-              <h4> $titulo </h4>
-              <br>
-              <form method='POST'>
-             
+                <h4> $titulo</h4>
+                <br>
+                <form method='POST'>
+
         ";
 
         return $html;
     }
-// Cierre formulario
-    public function formClose()
-    {
-        # code...
+
+
+    public function formClose(){
         $html = "
-            <br>
-            <input type='submit' id='btnguardar' name='btnguardar' class='page-title-action' value='enviar'>
+              <br>
+                 <input type='submit' id='btnguardar' name='btnguardar' class='page-title-action' value='enviar'>
             </form>
-           </div>
+          </div>  
         ";
 
         return $html;
     }
-   
-    // Contenido del formulario
+
+
     function fromInput($detalleid,$pregunta,$tipo){
         $html="";
         if($tipo == 1){
@@ -76,15 +75,14 @@
         return $html;
     }
 
-// confeccion del formulario 
+
     function Armador($encuestaid){
         $enc = $this->ObtenerEncuesta($encuestaid);
          $nombre = $enc['Nombre'];
         //obtener todas las preguntas
         $preguntas = "";
-        $listapreguntas = $this->ObtenerEncuestaDetalle($encuestaid);
-        var_dump($listapreguntas);
-        foreach($listapreguntas as $key => $value) {
+        $listapregutas = $this->ObtenerEncuestaDetalle($encuestaid);
+        foreach ($listapregutas as $key => $value) {
             $detalleid = $value['DetalleId'];
             $pregunta = $value['Pregunta'];
             $tipo =$value['Tipo'];
@@ -103,12 +101,16 @@
 
     }
 
+
     function GuardarDetalle($datos){
-       global $wpdb;
-       $tabla = "{$wpdb->prefix}encuestas_respuesta"; 
-       return  $wpdb->insert($tabla,$datos);
+        global $wpdb;
+        $tabla = "{$wpdb->prefix}encuestas_respuesta"; 
+        return  $wpdb->insert($tabla,$datos);
     }
 
-  }
+    
+
+
+}
 
 ?>

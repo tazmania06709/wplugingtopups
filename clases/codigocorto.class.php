@@ -4,9 +4,10 @@
     public function ObtenerEncuesta($encuestaid){
 
         global $wpdb;
-        $tabla = "{$wpdb->prefix}encuesta";
+        $tabla = "{$wpdb->prefix}encuestas";
         $query = "SELECT * FROM $tabla WHERE EncuestaId = '$encuestaid'";
         $datos = $wpdb->get_results($query, ARRAY_A);
+       // var_dump($datos);
         if(empty($datos)){
             $datos = array();
         }
@@ -22,7 +23,7 @@
         if(empty($datos)){
             $datos = array();
         }
-        return $datos[0];
+        return $datos;
     }
 //Comienzo formulario
 
@@ -87,7 +88,7 @@
         foreach($listapreguntas as $key => $value) {
             $detalleid = $value['DetalleId'];
             $pregunta = $value['Pregunta'];
-            $tipo =$value['Tipo'];
+            $tipo = $value['Tipo'];
             $encid = $value['EncuestaId'];
 
             if($encid == $encuestaid){

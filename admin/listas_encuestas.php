@@ -11,6 +11,7 @@
           $nombre = $_POST['txtnombre'];
           $query = "SELECT EncuestaId FROM $tabla ORDER BY EncuestaId DESC limit 1";
           $resultado = $wpdb->get_results($query,ARRAY_A);
+          //var_dump($resultado);
           $proximoId = $resultado[0]['EncuestaId'] + 1;
           $shortcode = "[ENC id='$proximoId']";
 

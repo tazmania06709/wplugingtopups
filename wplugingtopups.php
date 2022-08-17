@@ -38,6 +38,7 @@ function Activar(){
   $sql3 = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}encuestas_respuesta(
     `RespuestaId` int NOT NULL AUTO_INCREMENT,
     `DetalleId` int null,
+    `Codigo` varchar(45) null,
     `Respuesta` varchar(45) null,
     primary key (`RespuestaId`));";
 

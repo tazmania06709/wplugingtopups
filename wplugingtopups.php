@@ -164,6 +164,7 @@ function imprimirshortcode($atts){
     $id= $atts['id'];
     //Programar las acciones del boton
     if(isset($_POST['btnguardar'])){
+      //  var_dump($_POST);
         $listadePreguntas = $_short->ObtenerEncuestaDetalle($id);
         $codigo = uniqid();
         foreach ($listadePreguntas as $key => $value) {

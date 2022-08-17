@@ -108,10 +108,7 @@ class codigocorto{
         $tabla = "{$wpdb->prefix}encuestas_respuesta"; 
         return  $wpdb->insert($tabla,$datos);
     }
-
-    
-
-
+ 
 }
 
 ?>

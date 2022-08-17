@@ -145,8 +145,8 @@ function EliminarEncuesta(){
   global $wpdb;
   $tabla = "{$wpdb->prefix}encuestas";
   $tabla2 = "{$wpdb->prefix}encuestas_detalle";
-  $wpdb->delete($tabla,array('Encuestaid' => $id));
-  $wpdb->delete($tabla2,array('Encuestaid' => $id));
+  $wpdb->delete($tabla,array('EncuestaId' => $id));
+  $wpdb->delete($tabla2,array('EncuestaId' => $id));
   return true;
 
 }
